@@ -29,7 +29,7 @@ export async function onRequest(context) {
       const list = await env.TALENMAP_BUCKET.list({ prefix: prefix, limit: 1000 });
       const files = list.objects.map(obj => ({
         key: obj.key,
-        url: `https://file.talenmap.my.id/${obj.key}`,
+        url: `https://file.talentmap.my.id/${obj.key}`,
         size: obj.size,
         uploaded: obj.uploaded
       }));
@@ -59,7 +59,7 @@ export async function onRequest(context) {
         });
         return new Response(JSON.stringify({
           success: true,
-          url: `https://file.talenmap.my.id/${fileName}`
+          url: `https://file.talentmap.my.id/${fileName}`
         }), { headers: { "Content-Type": "application/json", ...corsHeaders } });
       }
 
